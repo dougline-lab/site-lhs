@@ -147,8 +147,8 @@ export const defaultSiteData: SiteData = {
       title: "Locação de Frota",
       category: "locacao",
       description: "Disponibilização de caminões, escavadeiras e tratores em geral.",
-      imageUrl: "caminhoes1.jpeg",
-      localPath: "caminhoes1.jpeg"
+      imageUrl: "cam.jpeg",
+      localPath: "cam.jpeg"
     },
     {
       id: "p3",

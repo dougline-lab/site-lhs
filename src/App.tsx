@@ -95,7 +95,7 @@ export default function App() {
               const isStale = 
                 !item.imageUrl ||
                 item.imageUrl.includes("unsplash.com") ||
-                item.imageUrl.includes("imagens/") ||
+                (item.imageUrl.includes("imagens/") && !item.imageUrl.includes("cam.jpeg")) ||
                 item.imageUrl.includes("images/") ||
                 item.imageUrl.includes("/assets/") ||
                 item.imageUrl.includes("/src/") ||
@@ -107,7 +107,7 @@ export default function App() {
                 item.imageUrl === "limpeza.jpeg" ||
                 item.imageUrl === "trit.jpeg" ||
                 (item.id === "p1" && item.imageUrl !== "trit.jpeg") ||
-                (item.id === "p2" && item.imageUrl !== "caminhoes1.jpeg") ||
+                (item.id === "p2" && item.imageUrl !== "cam.jpeg") ||
                 (item.id === "p3" && item.imageUrl !== "limp.jpeg");
               if (isStale) {
                 wasHealed = true;
