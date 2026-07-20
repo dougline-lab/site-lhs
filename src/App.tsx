@@ -25,13 +25,25 @@ export default function App() {
       const saved = localStorage.getItem("lhsilva_site_data");
       if (saved) {
         const parsed = JSON.parse(saved);
+        let wasHealed = false;
         
         // Auto-heal legacy or stale images in localStorage
         if (parsed.portfolio) {
           parsed.portfolio = parsed.portfolio.map((item: any) => {
             const defaultItem = defaultSiteData.portfolio.find((p) => p.id === item.id);
-            if (defaultItem && (item.imageUrl.includes("unsplash.com") || !item.imageUrl)) {
-              return { ...item, imageUrl: defaultItem.imageUrl };
+            if (defaultItem) {
+              const isStale = 
+                !item.imageUrl ||
+                item.imageUrl.includes("unsplash.com") ||
+                item.imageUrl.includes("imagens/") ||
+                item.imageUrl.includes("portfolio_") ||
+                item.imageUrl === "tritImg" ||
+                item.imageUrl === "limpImg" ||
+                item.imageUrl === "caminhoesImg";
+              if (isStale) {
+                wasHealed = true;
+                return { ...item, imageUrl: defaultItem.imageUrl };
+              }
             }
             return item;
           });
@@ -39,11 +51,23 @@ export default function App() {
         if (parsed.machines) {
           parsed.machines = parsed.machines.map((item: any) => {
             const defaultItem = defaultSiteData.machines.find((m) => m.id === item.id);
-            if (defaultItem && (item.imageUrl.includes("unsplash.com") || !item.imageUrl)) {
-              return { ...item, imageUrl: defaultItem.imageUrl };
+            if (defaultItem) {
+              const isStale = 
+                !item.imageUrl ||
+                item.imageUrl.includes("unsplash.com") ||
+                item.imageUrl.includes("imagens/") ||
+                item.imageUrl.includes("portfolio_");
+              if (isStale) {
+                wasHealed = true;
+                return { ...item, imageUrl: defaultItem.imageUrl };
+              }
             }
             return item;
           });
+        }
+
+        if (wasHealed) {
+          localStorage.setItem("lhsilva_site_data", JSON.stringify(parsed));
         }
 
         setSiteData(parsed);
