@@ -21,7 +21,7 @@ export const defaultSiteData: SiteData = {
     bgImageUrl: highwayImg
   },
   about: {
-    title: "Compromisso com o seu Terreno e Prazo",
+    title: "Compromisso com o seu Projeto e Prazo",
     subtitle: "Conheça a LH Silva",
     text1: "Natural da cidade de João Monlevade/MG, a empresa estende seu atendimento técnico de alta qualidade a diversas cidades pelo Brasil. Fundada com o objetivo de oferecer excelência em logística de maquinário pesado, terraplanagem e limpeza, a LH Silva consolidou-se como um parceiro estratégico para construtoras, produtores agrícolas e grandes projetos de infraestrutura, acumulando sólida experiência no atendimento de prefeituras e concessionárias de rodovias.",
     text2: "Nossa frota moderna é submetida a manutenções preventivas rigorosas, garantindo produtividade máxima no canteiro de obras. Contamos com operadores certificados, prontos para lidar com os desafios geográficos e técnicos mais exigentes do mercado com máxima segurança e conformidade operacional.",
@@ -30,7 +30,7 @@ export const defaultSiteData: SiteData = {
     values: [
       {
         title: "Segurança Absoluta",
-        description: "Zero incidentes. Operações com EPIs completos, maquinários revisados e profissionais altamente treinados.",
+        description: "Operações com EPIs completos, maquinários revisados e profissionais altamente treinados.",
         iconName: "Shield"
       },
       {
