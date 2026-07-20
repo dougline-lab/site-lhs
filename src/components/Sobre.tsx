@@ -189,20 +189,10 @@ export default function Sobre({ siteData }: SobreProps) {
                 </div>
               )}
 
+              
               {/* Video Badge Title */}
               <div className="absolute top-4 left-4 bg-brand-accent-500/90 text-brand-blue-950 font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-brand-accent-400/30 shadow-sm z-10 pointer-events-none">
                 {allSourcesFailed ? "Foto Operacional" : "Vídeo Operacional"}
-              </div>
-              
-              {/* Experience badge */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md text-brand-blue-950 p-6 rounded-xl shadow-lg border border-gray-100 z-10 pointer-events-none">
-                <div className="flex items-center gap-4">
-                  <span className="text-4xl font-display font-extrabold text-brand-blue-900">100%</span>
-                  <div>
-                    <h5 className="font-bold text-sm leading-tight">Execução Técnica Certificada</h5>
-                    <p className="text-xs text-gray-500 mt-0.5">Operações sob estrito regulamento de engenharia mecânica e florestal.</p>
-                  </div>
-                </div>
               </div>
             </div>
 
