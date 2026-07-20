@@ -143,9 +143,18 @@ export default function Servicos({ siteData }: ServicosProps) {
                   {/* Photo with overlay */}
                   <div className="relative aspect-video overflow-hidden shrink-0 bg-brand-blue-950">
                     <img
-                      src={machine.imageUrl}
+                      src={
+                        machine.imageUrl.startsWith("http://") ||
+                        machine.imageUrl.startsWith("https://") ||
+                        machine.imageUrl.startsWith("data:") ||
+                        machine.imageUrl.startsWith("/") ||
+                        machine.imageUrl.includes("/assets/")
+                          ? machine.imageUrl
+                          : `${(import.meta as any).env?.BASE_URL || "/"}${machine.imageUrl}`
+                      }
                       alt={machine.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-950/80 to-transparent"></div>
                     <span className="absolute bottom-3 left-3 bg-brand-accent-500/90 text-brand-blue-950 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded">

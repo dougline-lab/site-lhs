@@ -139,7 +139,7 @@ export const defaultSiteData: SiteData = {
       title: "Supressão em Área Industrial",
       category: "supressao",
       description: "Limpeza completa de 15 hectares para futura instalação de complexo logístico.",
-      imageUrl: tritImg,
+      imageUrl: "trit.jpeg",
       localPath: "trit.jpeg"
     },
     {
@@ -147,7 +147,7 @@ export const defaultSiteData: SiteData = {
       title: "Locação de Frota para Duplicação",
       category: "locacao",
       description: "Disponibilização de escavadeiras e tratores de esteira para movimentação de terra.",
-      imageUrl: caminhoesImg,
+      imageUrl: "caminhoes1.jpeg",
       localPath: "caminhoes1.jpeg"
     },
     {
@@ -155,7 +155,7 @@ export const defaultSiteData: SiteData = {
       title: "Limpeza de Terreno para Loteamento",
       category: "limpeza",
       description: "Destocamento de raízes profundas e nivelamento para condomínio horizontal.",
-      imageUrl: limpImg,
+      imageUrl: "limp.jpeg",
       localPath: "limp.jpeg"
     }
   ],
