@@ -25,7 +25,27 @@ export default function App() {
       const saved = localStorage.getItem("lhsilva_site_data");
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Deep merge or validate could be done, here we simple load parsed
+        
+        // Auto-heal legacy or stale images in localStorage
+        if (parsed.portfolio) {
+          parsed.portfolio = parsed.portfolio.map((item: any) => {
+            const defaultItem = defaultSiteData.portfolio.find((p) => p.id === item.id);
+            if (defaultItem && (item.imageUrl.includes("unsplash.com") || !item.imageUrl)) {
+              return { ...item, imageUrl: defaultItem.imageUrl };
+            }
+            return item;
+          });
+        }
+        if (parsed.machines) {
+          parsed.machines = parsed.machines.map((item: any) => {
+            const defaultItem = defaultSiteData.machines.find((m) => m.id === item.id);
+            if (defaultItem && (item.imageUrl.includes("unsplash.com") || !item.imageUrl)) {
+              return { ...item, imageUrl: defaultItem.imageUrl };
+            }
+            return item;
+          });
+        }
+
         setSiteData(parsed);
       }
     } catch (e) {
