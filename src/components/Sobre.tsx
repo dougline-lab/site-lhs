@@ -25,13 +25,15 @@ export default function Sobre({ siteData }: SobreProps) {
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
   ];
   const [currentSourceIndex, setCurrentSourceIndex] = useState(0);
+  const [allSourcesFailed, setAllSourcesFailed] = useState(false);
 
   const handleVideoError = () => {
     if (currentSourceIndex < videoSources.length - 1) {
       console.warn(`Erro ao carregar o vídeo de: ${videoSources[currentSourceIndex]}. Tentando alternativa...`);
       setCurrentSourceIndex(prev => prev + 1);
     } else {
-      console.error("Todas as fontes de vídeo falharam ao carregar.");
+      setAllSourcesFailed(true);
+      console.warn("Aviso: Não foi possível carregar as fontes de vídeo operacionais. Usando imagem estática como alternativa.");
     }
   };
 
@@ -133,50 +135,63 @@ export default function Sobre({ siteData }: SobreProps) {
           {/* Graphic Banner (Right) */}
           <div className="lg:col-span-5 relative" id="sobre-video-container">
             <div 
-              onClick={togglePlay}
+              onClick={allSourcesFailed ? undefined : togglePlay}
               className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative group bg-brand-blue-950 cursor-pointer"
             >
-              <video
-                ref={videoRef}
-                src={videoSources[currentSourceIndex]}
-                onError={handleVideoError}
-                poster="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
-                autoPlay
-                muted={isMuted}
-                loop
-                playsInline
-                title="Operação Florestal com Maquinário Pesado"
-              >
-                Seu navegador não suporta a exibição de vídeos HTML5.
-              </video>
+              {allSourcesFailed ? (
+                <img
+                  src="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800"
+                  alt="Operação Florestal com Maquinário Pesado"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <video
+                  ref={videoRef}
+                  src={videoSources[currentSourceIndex]}
+                  onError={handleVideoError}
+                  poster="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+                  autoPlay
+                  muted={isMuted}
+                  loop
+                  playsInline
+                  title="Operação Florestal com Maquinário Pesado"
+                >
+                  Seu navegador não suporta a exibição de vídeos HTML5.
+                </video>
+              )}
               
               {/* Overlays */}
               <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-950/80 via-transparent to-black/30 pointer-events-none opacity-60"></div>
 
               {/* Top Bar for Sound Control */}
-              <div className="absolute top-4 right-4 z-10">
-                <button
-                  onClick={toggleMute}
-                  className="bg-brand-blue-950/70 hover:bg-brand-blue-900/90 text-white p-2 rounded-full border border-brand-blue-800/40 backdrop-blur-sm transition-all duration-200 hover:scale-105 flex items-center justify-center cursor-pointer"
-                  title={isMuted ? "Ativar som" : "Desativar som"}
-                >
-                  {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
-                </button>
-              </div>
+              {!allSourcesFailed && (
+                <div className="absolute top-4 right-4 z-10">
+                  <button
+                    onClick={toggleMute}
+                    className="bg-brand-blue-950/70 hover:bg-brand-blue-900/90 text-white p-2 rounded-full border border-brand-blue-800/40 backdrop-blur-sm transition-all duration-200 hover:scale-105 flex items-center justify-center cursor-pointer"
+                    title={isMuted ? "Ativar som" : "Desativar som"}
+                  >
+                    {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                  </button>
+                </div>
+              )}
 
               {/* Play/Pause Large Center Icon on Hover or Paused State */}
-              <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 pointer-events-none z-10 ${
-                !isPlaying ? "opacity-100 scale-100 bg-black/20" : "opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100"
-              }`}>
-                <div className="bg-brand-accent-500 text-brand-blue-950 p-4 rounded-full shadow-lg border border-brand-accent-400">
-                  {isPlaying ? <Pause size={24} className="fill-brand-blue-950" /> : <Play size={24} className="fill-brand-blue-950 ml-0.5" />}
+              {!allSourcesFailed && (
+                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 pointer-events-none z-10 ${
+                  !isPlaying ? "opacity-100 scale-100 bg-black/20" : "opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100"
+                }`}>
+                  <div className="bg-brand-accent-500 text-brand-blue-950 p-4 rounded-full shadow-lg border border-brand-accent-400">
+                    {isPlaying ? <Pause size={24} className="fill-brand-blue-950" /> : <Play size={24} className="fill-brand-blue-950 ml-0.5" />}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Video Badge Title */}
               <div className="absolute top-4 left-4 bg-brand-accent-500/90 text-brand-blue-950 font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded border border-brand-accent-400/30 shadow-sm z-10 pointer-events-none">
-                Vídeo Operacional
+                {allSourcesFailed ? "Foto Operacional" : "Vídeo Operacional"}
               </div>
               
               {/* Experience badge */}

@@ -7,6 +7,8 @@ import escavadeiraImg from "./assets/images/escavadeira_20t_1784571452989.jpg";
 import retroImg from "./assets/images/retroescavadeira_4x4_1784571467863.jpg";
 // @ts-ignore
 import trituradorImg from "./assets/images/triturador_fae_1784571482005.jpg";
+// @ts-ignore
+import tratorEsteiraImg from "./assets/images/trator_esteira_d6_1784572451691.jpg";
 
 export const defaultSiteData: SiteData = {
   company: {
@@ -106,7 +108,7 @@ export const defaultSiteData: SiteData = {
       category: "pesada",
       description: "Excelente para espalhamento de material, nivelamento pesado e empurre de materiais em supressão vegetal.",
       specs: ["Peso operacional: 18.500 kg", "Potência: 170 HP", "Largura da lâmina: 3.4 m"],
-      imageUrl: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=800"
+      imageUrl: tratorEsteiraImg
     },
     {
       id: "retroescavadeira",
