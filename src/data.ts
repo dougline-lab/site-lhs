@@ -1,6 +1,12 @@
 import { SiteData } from "./types";
 // @ts-ignore
 import highwayImg from "./assets/images/highway_under_construction_1784563314455.jpg";
+// @ts-ignore
+import escavadeiraImg from "./assets/images/escavadeira_20t_1784571452989.jpg";
+// @ts-ignore
+import retroImg from "./assets/images/retroescavadeira_4x4_1784571467863.jpg";
+// @ts-ignore
+import trituradorImg from "./assets/images/triturador_fae_1784571482005.jpg";
 
 export const defaultSiteData: SiteData = {
   company: {
@@ -92,7 +98,7 @@ export const defaultSiteData: SiteData = {
       category: "pesada",
       description: "Ideal para escavações profundas, destocamento de grandes árvores e movimentação ágil de terra.",
       specs: ["Peso operacional: 21.200 kg", "Potência: 150 HP", "Capacidade da caçamba: 1.2 m³"],
-      imageUrl: "/escavadeira.jpeg"
+      imageUrl: escavadeiraImg
     },
     {
       id: "trator-esteira",
@@ -108,7 +114,7 @@ export const defaultSiteData: SiteData = {
       category: "suporte",
       description: "Máquina versátil indispensável para suporte à limpeza, abertura de valas e carregamento ágil.",
       specs: ["Peso operacional: 7.800 kg", "Potência: 90 HP", "Tração: 4x4 integral"],
-      imageUrl: "/retro2.jpeg"
+      imageUrl: retroImg
     },
     {
       id: "triturador-florestal",
@@ -116,7 +122,7 @@ export const defaultSiteData: SiteData = {
       category: "acessorios",
       description: "Acoplável em escavadeiras para trituração instantânea de vegetação, galhos e arbustos.",
       specs: ["Diâmetro de corte: até 25 cm", "Largura de trabalho: 1.5 m", "Tritura galhos diretamente no solo"],
-      imageUrl: "/triturador-fae.jpeg"
+      imageUrl: trituradorImg
     }
   ],
   portfolio: [
