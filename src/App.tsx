@@ -84,7 +84,13 @@ export default function App() {
                 item.title = defaultItem.title;
                 wasHealed = true;
               }
-              if (item.description === "Limpeza completa de 15 hectares para futura instalação de complexo logístico.") {
+              if (
+                item.description === "Limpeza completa de 15 hectares para futura instalação de complexo logístico." ||
+                item.description === "" ||
+                item.description === "Disponibilização de escavadeiras e tratores de esteira para movimentação de terra." ||
+                item.description === "Destocamento de raízes profundas e nivelamento para condomínio horizontal." ||
+                item.description !== defaultItem.description
+              ) {
                 item.description = defaultItem.description;
                 wasHealed = true;
               }

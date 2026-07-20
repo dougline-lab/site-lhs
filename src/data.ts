@@ -137,7 +137,7 @@ export const defaultSiteData: SiteData = {
       id: "p1",
       title: "Supressao Vegetal",
       category: "supressao",
-      description: "",
+      description: "Atuação em área urbana e rural",
       imageUrl: "trit.jpeg",
       videoUrl: "komatsu-area-urbana.mp4",
       localPath: "komatsu-area-urbana.mp4"
@@ -146,7 +146,7 @@ export const defaultSiteData: SiteData = {
       id: "p2",
       title: "Locação de Frota",
       category: "locacao",
-      description: "Disponibilização de escavadeiras e tratores de esteira para movimentação de terra.",
+      description: "Disponibilização de caminões, escavadeiras e tratores em geral.",
       imageUrl: "caminhoes1.jpeg",
       localPath: "caminhoes1.jpeg"
     },
@@ -154,7 +154,7 @@ export const defaultSiteData: SiteData = {
       id: "p3",
       title: "Limpeza de Terreno",
       category: "limpeza",
-      description: "Destocamento de raízes profundas e nivelamento para condomínio horizontal.",
+      description: "Destocamento de raizes, limpeza de arvores a margens de rodovias e demais projetos de construção civil.",
       imageUrl: "limp.jpeg",
       localPath: "limp.jpeg"
     }
