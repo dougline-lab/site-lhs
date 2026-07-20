@@ -42,11 +42,29 @@ export default function App() {
           }
         }
         
-        // Auto-heal legacy or stale images in localStorage
+        // Auto-heal legacy features in services
+        if (parsed.services && parsed.services.items) {
+          parsed.services.items = parsed.services.items.map((item: any) => {
+            if (item.features) {
+              const beforeLen = item.features.length;
+              item.features = item.features.filter((f: string) => f !== "Manutenção no local inclusa nos contratos");
+              if (item.features.length !== beforeLen) {
+                wasHealed = true;
+              }
+            }
+            return item;
+          });
+        }
+        
+        // Auto-heal legacy or stale images and titles in localStorage
         if (parsed.portfolio) {
           parsed.portfolio = parsed.portfolio.map((item: any) => {
             const defaultItem = defaultSiteData.portfolio.find((p) => p.id === item.id);
             if (defaultItem) {
+              if (item.title === "Supressão em Área Industrial" || item.title === "Locação de Frota para Duplicação" || item.title === "Limpeza de Terreno para Loteamento" || item.title !== defaultItem.title) {
+                item.title = defaultItem.title;
+                wasHealed = true;
+              }
               const isStale = 
                 !item.imageUrl ||
                 item.imageUrl.includes("unsplash.com") ||

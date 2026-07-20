@@ -82,8 +82,7 @@ export const defaultSiteData: SiteData = {
         features: [
           "Escavadeiras hidráulicas de última geração",
           "Tratores de esteira com alto torque",
-          "Retroescavadeiras e motoniveladoras",
-          "Manutenção no local inclusa nos contratos"
+          "Retroescavadeiras e motoniveladoras"
         ]
       },
       {
@@ -136,7 +135,7 @@ export const defaultSiteData: SiteData = {
   portfolio: [
     {
       id: "p1",
-      title: "Supressão em Área Industrial",
+      title: "Supressao Vegetal",
       category: "supressao",
       description: "Limpeza completa de 15 hectares para futura instalação de complexo logístico.",
       imageUrl: "trit.jpeg",
@@ -144,7 +143,7 @@ export const defaultSiteData: SiteData = {
     },
     {
       id: "p2",
-      title: "Locação de Frota para Duplicação",
+      title: "Locação de Frota",
       category: "locacao",
       description: "Disponibilização de escavadeiras e tratores de esteira para movimentação de terra.",
       imageUrl: "caminhoes1.jpeg",
@@ -152,7 +151,7 @@ export const defaultSiteData: SiteData = {
     },
     {
       id: "p3",
-      title: "Limpeza de Terreno para Loteamento",
+      title: "Limpeza de Terreno",
       category: "limpeza",
       description: "Destocamento de raízes profundas e nivelamento para condomínio horizontal.",
       imageUrl: "limp.jpeg",
