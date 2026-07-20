@@ -84,6 +84,10 @@ export default function App() {
                 item.title = defaultItem.title;
                 wasHealed = true;
               }
+              if (item.description === "Limpeza completa de 15 hectares para futura instalação de complexo logístico.") {
+                item.description = defaultItem.description;
+                wasHealed = true;
+              }
               const isStale = 
                 !item.imageUrl ||
                 item.imageUrl.includes("unsplash.com") ||
