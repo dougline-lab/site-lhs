@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { Menu, X, Sliders, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { SiteData } from "../types";
 
 interface HeaderProps {
   siteData: SiteData;
   activeSection: string;
-  onOpenAdmin: () => void;
 }
 
-export default function Header({ siteData, activeSection, onOpenAdmin }: HeaderProps) {
+export default function Header({ siteData, activeSection }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
@@ -80,16 +79,15 @@ export default function Header({ siteData, activeSection, onOpenAdmin }: HeaderP
               </button>
             ))}
 
-            {/* Admin Config Button */}
-            <button
-              onClick={onOpenAdmin}
-              className="ml-4 p-2 rounded-full text-brand-accent-500 hover:text-white hover:bg-brand-blue-900/60 transition-all cursor-pointer flex items-center gap-1.5 border border-brand-accent-500/30 hover:border-brand-accent-500 text-xs"
-              title="Personalizar Conteúdo e Imagens"
-              id="admin-trigger-desktop"
+            {/* Call Contact Link */}
+            <a
+              href="tel:31994053395"
+              className="ml-2 border border-brand-accent-500/50 hover:bg-brand-accent-500 hover:text-brand-blue-950 text-brand-accent-500 font-semibold px-4 py-2 rounded-md text-sm transition-transform hover:scale-105 flex items-center gap-2 shadow-sm"
+              id="header-call-cta"
             >
-              <Sliders size={15} />
-              <span>Personalizar</span>
-            </button>
+              <Phone size={15} className="shrink-0" />
+              <span>(31) 99405-3395</span>
+            </a>
 
             {/* Quick Contact Link */}
             <a
@@ -111,13 +109,14 @@ export default function Header({ siteData, activeSection, onOpenAdmin }: HeaderP
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-3">
-            <button
-              onClick={onOpenAdmin}
-              className="p-2 rounded-full text-brand-accent-500 hover:text-white hover:bg-brand-blue-900/60 transition-all cursor-pointer flex items-center gap-1"
-              id="admin-trigger-mobile"
+            <a
+              href="tel:31994053395"
+              className="p-2 rounded-full text-brand-accent-500 hover:text-white hover:bg-brand-blue-900/60 transition-all flex items-center justify-center border border-brand-accent-500/30"
+              title="Ligar"
+              id="mobile-call-direct"
             >
-              <Sliders size={18} />
-            </button>
+              <Phone size={18} />
+            </a>
             
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -150,6 +149,15 @@ export default function Header({ siteData, activeSection, onOpenAdmin }: HeaderP
             ))}
             
             <div className="pt-4 border-t border-brand-blue-900 mt-2 px-3 flex flex-col gap-3">
+              <a
+                href="tel:31994053395"
+                className="w-full border border-brand-accent-500 text-brand-accent-500 hover:bg-brand-accent-500 hover:text-brand-blue-950 text-center font-semibold py-3 rounded-md text-base transition-colors flex items-center justify-center gap-2"
+                id="mobile-nav-call-cta"
+              >
+                <Phone size={18} className="shrink-0" />
+                <span>Ligar: (31) 99405-3395</span>
+              </a>
+
               <a
                 href={`https://wa.me/${siteData.company.phone}?text=${encodeURIComponent(siteData.company.whatsappMsgDefault)}`}
                 target="_blank"

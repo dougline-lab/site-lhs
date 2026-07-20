@@ -11,12 +11,10 @@ import Servicos from "./components/Servicos";
 import Portfolio from "./components/Portfolio";
 import Contato from "./components/Contato";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
-import AdminPanel from "./components/AdminPanel";
 
 export default function App() {
   const [siteData, setSiteData] = useState<SiteData>(defaultSiteData);
   const [activeSection, setActiveSection] = useState<string>("home");
-  const [isAdminOpen, setIsAdminOpen] = useState<boolean>(false);
 
   // Load saved modifications from localStorage on mount
   useEffect(() => {
@@ -226,7 +224,6 @@ export default function App() {
       <Header 
         siteData={siteData} 
         activeSection={activeSection} 
-        onOpenAdmin={() => setIsAdminOpen(true)} 
       />
 
       {/* Main Single Page Sections */}
@@ -326,19 +323,9 @@ export default function App() {
 
           </div>
 
-          {/* Copyright notice & Admin trigger footer block */}
+          {/* Copyright notice footer block */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
             <p>© {new Date().getFullYear()} L.H. Silva Ltda. Todos os direitos reservados. CNPJ sob consulta.</p>
-            
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsAdminOpen(true)}
-                className="hover:text-brand-accent-500 transition-colors flex items-center gap-1 cursor-pointer font-semibold border-b border-dashed border-gray-500 hover:border-brand-accent-500"
-              >
-                <Sliders size={12} />
-                <span>Painel do Administrador</span>
-              </button>
-            </div>
           </div>
 
         </div>
@@ -346,15 +333,6 @@ export default function App() {
 
       {/* Floating Action WhatsApp with smart popup form */}
       <FloatingWhatsApp siteData={siteData} />
-
-      {/* Admin Customization Sidebar Slide-Over */}
-      <AdminPanel 
-        isOpen={isAdminOpen} 
-        onClose={() => setIsAdminOpen(false)} 
-        siteData={siteData} 
-        onSave={handleSaveData} 
-        onReset={handleResetData} 
-      />
 
     </div>
   );

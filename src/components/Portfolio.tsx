@@ -71,6 +71,12 @@ export default function Portfolio({ siteData }: PortfolioProps) {
               <div className="relative aspect-4/3 overflow-hidden bg-brand-blue-950 group/img">
                 {item.videoUrl ? (
                   <video
+                    ref={(el) => {
+                      if (el) {
+                        el.muted = true;
+                        el.play().catch((err) => console.log("Autoplay interrupted/blocked:", err));
+                      }
+                    }}
                     poster={resolveImagePath(item.imageUrl)}
                     className="w-full h-full object-cover animate-fade-in"
                     controls
@@ -142,22 +148,6 @@ export default function Portfolio({ siteData }: PortfolioProps) {
               <p className="text-gray-400 font-medium text-sm">Nenhum projeto cadastrado nesta aba.</p>
             </div>
           )}
-        </div>
-
-        {/* Offline instruction card */}
-        <div className="mt-16 bg-brand-blue-900/5 rounded-2xl p-6 sm:p-8 border border-brand-blue-900/10 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <h4 className="font-display font-bold text-brand-blue-950 text-base mb-1">
-              Deseja adicionar novos vídeos e fotos do seu portfólio local?
-            </h4>
-            <p className="text-gray-500 text-xs leading-relaxed">
-              Utilize o botão de <strong className="text-brand-blue-900">Personalizar</strong> no menu superior para cadastrar novos itens, associando as imagens que você possui armazenadas em sua pasta OneDrive. Ao exportar a página, as mídias locais serão carregadas perfeitamente!
-            </p>
-          </div>
-          <div className="bg-white border border-slate-200 px-4 py-3 rounded-xl flex items-center gap-3 shrink-0 shadow-sm">
-            <CheckCircle2 size={18} className="text-emerald-500" />
-            <span className="text-xs font-bold text-slate-700">Visualização Local Sincronizada</span>
-          </div>
         </div>
 
       </div>
