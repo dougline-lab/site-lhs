@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Trees, Truck, Wrench, ShieldCheck, HelpCircle, ChevronRight, Calculator, Calendar } from "lucide-react";
 import { SiteData, MachineItem } from "../types";
+import { resolveImagePath } from "../utils/image";
 
 interface ServicosProps {
   siteData: SiteData;
@@ -143,13 +144,7 @@ export default function Servicos({ siteData }: ServicosProps) {
                   {/* Photo with overlay */}
                   <div className="relative aspect-video overflow-hidden shrink-0 bg-brand-blue-950">
                     <img
-                      src={
-                        machine.imageUrl.startsWith("http://") ||
-                        machine.imageUrl.startsWith("https://") ||
-                        machine.imageUrl.startsWith("data:")
-                          ? machine.imageUrl
-                          : `${import.meta.env.BASE_URL}${machine.imageUrl.startsWith("/") ? machine.imageUrl.slice(1) : machine.imageUrl}`
-                      }
+                      src={resolveImagePath(machine.imageUrl)}
                       alt={machine.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"

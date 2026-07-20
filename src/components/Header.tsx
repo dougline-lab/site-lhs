@@ -16,7 +16,6 @@ export default function Header({ siteData, activeSection, onOpenAdmin }: HeaderP
     { id: "sobre", label: "Sobre" },
     { id: "servicos", label: "Serviços" },
     { id: "portfolio", label: "Portfólio" },
-    { id: "depoimentos", label: "Depoimentos" },
     { id: "contato", label: "Contato" },
   ];
 

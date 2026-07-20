@@ -9,7 +9,6 @@ import Home from "./components/Home";
 import Sobre from "./components/Sobre";
 import Servicos from "./components/Servicos";
 import Portfolio from "./components/Portfolio";
-import Depoimentos from "./components/Depoimentos";
 import Contato from "./components/Contato";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import AdminPanel from "./components/AdminPanel";
@@ -174,11 +173,6 @@ export default function App() {
           siteData={siteData} 
         />
 
-        {/* Depoimentos Section */}
-        <Depoimentos 
-          siteData={siteData} 
-        />
-
         {/* Contato Section */}
         <Contato 
           siteData={siteData} 
@@ -210,7 +204,7 @@ export default function App() {
             <div>
               <h4 className="font-display font-bold text-white text-xs uppercase tracking-wider mb-4">Navegação</h4>
               <ul className="space-y-2 text-xs">
-                {["Home", "Sobre", "Servicos", "Portfolio", "Depoimentos", "Contato"].map((sec) => (
+                {["Home", "Sobre", "Servicos", "Portfolio", "Contato"].map((sec) => (
                   <li key={sec}>
                     <button 
                       onClick={() => handleScrollToSection(sec.toLowerCase())}

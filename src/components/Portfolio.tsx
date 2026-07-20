@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Folder, Eye, CheckCircle2, ChevronRight, Image as ImageIcon, Video as VideoIcon } from "lucide-react";
 import { SiteData, PortfolioItem } from "../types";
+import { resolveImagePath } from "../utils/image";
 
 interface PortfolioProps {
   siteData: SiteData;
@@ -69,13 +70,7 @@ export default function Portfolio({ siteData }: PortfolioProps) {
               {/* Photo cover with Zoom effect */}
               <div className="relative aspect-4/3 overflow-hidden bg-brand-blue-950 group/img">
                 <img
-                  src={
-                    item.imageUrl.startsWith("http://") ||
-                    item.imageUrl.startsWith("https://") ||
-                    item.imageUrl.startsWith("data:")
-                      ? item.imageUrl
-                      : `${import.meta.env.BASE_URL}${item.imageUrl.startsWith("/") ? item.imageUrl.slice(1) : item.imageUrl}`
-                  }
+                  src={resolveImagePath(item.imageUrl)}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"

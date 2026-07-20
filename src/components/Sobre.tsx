@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Shield, Clock, Leaf, AlertTriangle, FileText, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { SiteData } from "../types";
+import { resolveImagePath } from "../utils/image";
 
 interface SobreProps {
   siteData: SiteData;
@@ -14,10 +15,9 @@ export default function Sobre({ siteData }: SobreProps) {
   const [isPlaying, setIsPlaying] = useState(true);
 
   // Lista de fontes de vídeo ordenada por prioridade (compatível com GitHub Pages e caminhos locais)
-  const base = import.meta.env.BASE_URL;
   const videoSources = [
-    `${base}triturador-trabalhand.mp4`,
-    `${base}src/assets/images/triturador-trabalhand.mp4`,
+    resolveImagePath("triturador-trabalhand.mp4"),
+    resolveImagePath("src/assets/images/triturador-trabalhand.mp4"),
     "./src/assets/images/triturador-trabalhand.mp4",
     "src/assets/images/triturador-trabalhand.mp4",
     "./triturador-trabalhand.mp4",
