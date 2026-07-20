@@ -9,6 +9,12 @@ import retroImg from "./assets/images/retroescavadeira_4x4_1784571467863.jpg";
 import trituradorImg from "./assets/images/triturador_fae_1784571482005.jpg";
 // @ts-ignore
 import tratorEsteiraImg from "./assets/images/trator_esteira_d6_1784572451691.jpg";
+// @ts-ignore
+import tritImg from "./assets/images/trit_supressao_1784573225839.jpg";
+// @ts-ignore
+import limpImg from "./assets/images/limp_limpeza_1784573242404.jpg";
+// @ts-ignore
+import caminhoesImg from "./assets/images/caminhoes1_locacao_1784573257832.jpg";
 
 export const defaultSiteData: SiteData = {
   company: {
@@ -133,24 +139,24 @@ export const defaultSiteData: SiteData = {
       title: "Supressão em Área Industrial",
       category: "supressao",
       description: "Limpeza completa de 15 hectares para futura instalação de complexo logístico.",
-      imageUrl: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?auto=format&fit=crop&q=80&w=800",
-      localPath: "imagens/portfolio_industrial.jpg"
+      imageUrl: tritImg,
+      localPath: "trit.jpeg"
     },
     {
       id: "p2",
       title: "Locação de Frota para Duplicação",
       category: "locacao",
       description: "Disponibilização de escavadeiras e tratores de esteira para movimentação de terra.",
-      imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
-      localPath: "imagens/portfolio_rodovia.jpg"
+      imageUrl: caminhoesImg,
+      localPath: "caminhoes1.jpeg"
     },
     {
       id: "p3",
       title: "Limpeza de Terreno para Loteamento",
       category: "limpeza",
       description: "Destocamento de raízes profundas e nivelamento para condomínio horizontal.",
-      imageUrl: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800",
-      localPath: "imagens/portfolio_loteamento.jpg"
+      imageUrl: limpImg,
+      localPath: "limp.jpeg"
     }
   ],
   testimonials: [
