@@ -23,8 +23,8 @@ export const defaultSiteData: SiteData = {
   about: {
     title: "Compromisso com o seu Terreno e Prazo",
     subtitle: "Conheça a LH Silva",
-    text1: "Fundada com o objetivo de oferecer excelência em logística de maquinário pesado e operações de terraplanagem e limpeza, a LH Silva consolidou-se como um parceiro estratégico para construtoras, produtores agrícolas e projetos de infraestrutura.",
-    text2: "Nossa frota moderna é submetida a manutenções preventivas rigorosas, garantindo produtividade máxima no canteiro de obras. Contamos com operadores certificados, prontos para lidar com os desafios geográficos e técnicos mais exigentes do mercado.",
+    text1: "Natural da cidade de João Monlevade/MG, a empresa estende seu atendimento técnico de alta qualidade a diversas cidades pelo Brasil. Fundada com o objetivo de oferecer excelência em logística de maquinário pesado, terraplanagem e limpeza, a LH Silva consolidou-se como um parceiro estratégico para construtoras, produtores agrícolas e grandes projetos de infraestrutura, acumulando sólida experiência no atendimento de prefeituras e concessionárias de rodovias.",
+    text2: "Nossa frota moderna é submetida a manutenções preventivas rigorosas, garantindo produtividade máxima no canteiro de obras. Contamos com operadores certificados, prontos para lidar com os desafios geográficos e técnicos mais exigentes do mercado com máxima segurança e conformidade operacional.",
     licenseTitle: "Aviso Importante sobre Licenciamento Ambiental",
     licenseText: "A LH Silva realiza a execução técnica qualificada de supressão vegetal e limpeza de terrenos. No entanto, não realizamos os trâmites legais para obtenção de licenças ambientais. A obtenção e regularização das devidas licenças e autorizações junto aos órgãos competentes são de responsabilidade exclusiva do contratante antes do início das atividades de campo.",
     values: [
