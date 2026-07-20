@@ -58,8 +58,27 @@ export default function App() {
         
         // Auto-heal legacy or stale images and titles in localStorage
         if (parsed.portfolio) {
-          parsed.portfolio = parsed.portfolio.map((item: any) => {
-            const defaultItem = defaultSiteData.portfolio.find((p) => p.id === item.id);
+          parsed.portfolio = parsed.portfolio.map((item: any, index: number) => {
+            // Normalize legacy IDs to match new p1, p2, p3 IDs
+            if (item.id === "portfolio_1" || item.id === "portfolio_01" || !item.id) {
+              item.id = "p1";
+              wasHealed = true;
+            } else if (item.id === "portfolio_2" || item.id === "portfolio_02") {
+              item.id = "p2";
+              wasHealed = true;
+            } else if (item.id === "portfolio_3" || item.id === "portfolio_03") {
+              item.id = "p3";
+              wasHealed = true;
+            }
+
+            let defaultItem = defaultSiteData.portfolio.find((p) => p.id === item.id);
+            // Fallback to index-based mapping if still not found
+            if (!defaultItem && index < defaultSiteData.portfolio.length) {
+              defaultItem = defaultSiteData.portfolio[index];
+              item.id = defaultItem.id;
+              wasHealed = true;
+            }
+
             if (defaultItem) {
               if (item.title === "Supressão em Área Industrial" || item.title === "Locação de Frota para Duplicação" || item.title === "Limpeza de Terreno para Loteamento" || item.title !== defaultItem.title) {
                 item.title = defaultItem.title;
@@ -84,7 +103,7 @@ export default function App() {
                 (item.id === "p3" && item.imageUrl !== "limp.jpeg");
               if (isStale) {
                 wasHealed = true;
-                return { ...item, imageUrl: defaultItem.imageUrl, videoUrl: defaultItem.videoUrl };
+                return { ...item, id: defaultItem.id, imageUrl: defaultItem.imageUrl, videoUrl: defaultItem.videoUrl };
               }
               if (defaultItem.videoUrl) {
                 if (item.videoUrl !== defaultItem.videoUrl) {
