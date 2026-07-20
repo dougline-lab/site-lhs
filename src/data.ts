@@ -92,7 +92,7 @@ export const defaultSiteData: SiteData = {
       category: "pesada",
       description: "Ideal para escavações profundas, destocamento de grandes árvores e movimentação ágil de terra.",
       specs: ["Peso operacional: 21.200 kg", "Potência: 150 HP", "Capacidade da caçamba: 1.2 m³"],
-      imageUrl: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=crop&q=80&w=800"
+      imageUrl: "/escavadeira.jpeg"
     },
     {
       id: "trator-esteira",
@@ -108,7 +108,7 @@ export const defaultSiteData: SiteData = {
       category: "suporte",
       description: "Máquina versátil indispensável para suporte à limpeza, abertura de valas e carregamento ágil.",
       specs: ["Peso operacional: 7.800 kg", "Potência: 90 HP", "Tração: 4x4 integral"],
-      imageUrl: "https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800"
+      imageUrl: "/retro2.jpeg"
     },
     {
       id: "triturador-florestal",
@@ -116,7 +116,7 @@ export const defaultSiteData: SiteData = {
       category: "acessorios",
       description: "Acoplável em escavadeiras para trituração instantânea de vegetação, galhos e arbustos.",
       specs: ["Diâmetro de corte: até 25 cm", "Largura de trabalho: 1.5 m", "Tritura galhos diretamente no solo"],
-      imageUrl: "https://images.unsplash.com/photo-1588714014411-847c9e53d12a?auto=format&fit=crop&q=80&w=800"
+      imageUrl: "/triturador-fae.jpeg"
     }
   ],
   portfolio: [
