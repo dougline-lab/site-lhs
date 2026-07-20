@@ -202,7 +202,7 @@ export default function Contato({ siteData }: ContatoProps) {
                     required
                     value={formData.telefone}
                     onChange={handleInputChange}
-                    placeholder="Ex: (15) 99815-4321"
+                    placeholder="Ex: (31) 97356-4074"
                     className="w-full bg-[#03152d] border border-brand-blue-800/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-accent-500 focus:ring-1 focus:ring-brand-accent-500 transition-all placeholder:text-gray-500"
                   />
                 </div>

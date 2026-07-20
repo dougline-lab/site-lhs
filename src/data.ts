@@ -6,7 +6,7 @@ export const defaultSiteData: SiteData = {
   company: {
     name: "LH Silva",
     logoText: "LH SILVA",
-    phone: "5515998154321",
+    phone: "5531973564074",
     whatsappMsgDefault: "Olá! Gostaria de fazer um orçamento de locação de máquinas ou saber mais sobre os serviços de supressão vegetal.",
     email: "contato@lhsilva.com.br",
     address: "Av. Industrial, 1200 - Distrito Industrial",

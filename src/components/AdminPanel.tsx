@@ -154,7 +154,7 @@ export default function AdminPanel({ isOpen, onClose, siteData, onSave, onReset 
                           type="text"
                           value={localData.company.phone}
                           onChange={(e) => handleInputChange("company", "phone", e.target.value)}
-                          placeholder="Ex: 5515998154321"
+                          placeholder="Ex: 5531973564074"
                           className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3.5 py-2.5 text-xs font-mono text-slate-800 focus:outline-none focus:border-brand-blue-900 focus:bg-white"
                         />
                         <p className="text-[10px] text-gray-400 mt-1">Sem hífens ou parênteses. Comece com 55.</p>
