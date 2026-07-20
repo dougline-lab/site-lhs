@@ -24,6 +24,7 @@ export default function Home({ siteData, onScrollToSection }: HomeProps) {
           src={hero.bgImageUrl}
           alt="Operações de Máquinas Pesadas"
           className="w-full h-full object-cover object-center opacity-45 transform scale-105"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-blue-950 via-brand-blue-950/80 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f8fafc] to-transparent"></div>

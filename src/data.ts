@@ -1,4 +1,6 @@
 import { SiteData } from "./types";
+// @ts-ignore
+import highwayImg from "./assets/images/highway_under_construction_1784563314455.jpg";
 
 export const defaultSiteData: SiteData = {
   company: {
@@ -16,7 +18,7 @@ export const defaultSiteData: SiteData = {
     subtitle: "Especialistas em locação de máquinas pesadas e execução técnica de supressão vegetal. Soluções eficientes com alta segurança e responsabilidade operacional.",
     ctaText: "Solicitar Orçamento",
     secondaryCtaText: "Ver Nossos Serviços",
-    bgImageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1920"
+    bgImageUrl: highwayImg
   },
   about: {
     title: "Compromisso com o seu Terreno e Prazo",
