@@ -22,9 +22,9 @@ export const defaultSiteData: SiteData = {
     logoText: "LH SILVA",
     phone: "5531973564074",
     whatsappMsgDefault: "Olá! Gostaria de fazer um orçamento de locação de máquinas ou saber mais sobre os serviços de supressão vegetal.",
-    email: "contato@lhsilva.com.br",
-    address: "Av. Industrial, 1200 - Distrito Industrial",
-    cityState: "Sorocaba - SP",
+    email: "lhs.locacao@gmail.com",
+    address: "BR 381, KM 347",
+    cityState: "João Monlevade/MG",
     workingHours: "Segunda a Sexta: 07h às 17h"
   },
   hero: {

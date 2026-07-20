@@ -26,6 +26,22 @@ export default function App() {
         const parsed = JSON.parse(saved);
         let wasHealed = false;
         
+        // Auto-heal legacy or stale company info in localStorage
+        if (parsed.company) {
+          if (parsed.company.email === "contato@lhsilva.com.br") {
+            parsed.company.email = "lhs.locacao@gmail.com";
+            wasHealed = true;
+          }
+          if (parsed.company.address === "Av. Industrial, 1200 - Distrito Industrial") {
+            parsed.company.address = "BR 381, KM 347";
+            wasHealed = true;
+          }
+          if (parsed.company.cityState === "Sorocaba - SP") {
+            parsed.company.cityState = "João Monlevade/MG";
+            wasHealed = true;
+          }
+        }
+        
         // Auto-heal legacy or stale images in localStorage
         if (parsed.portfolio) {
           parsed.portfolio = parsed.portfolio.map((item: any) => {
@@ -85,7 +101,7 @@ export default function App() {
   // Set up an scroll listener to detect current active section for nav highlighting
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "sobre", "servicos", "portfolio", "depoimentos", "contato"];
+      const sections = ["home", "sobre", "servicos", "portfolio", "contato"];
       const scrollPosition = window.scrollY + 200; // Offset for better detection triggers
 
       for (const section of sections) {

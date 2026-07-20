@@ -141,7 +141,7 @@ export default function Contato({ siteData }: ContatoProps) {
                     <MapPin size={18} />
                   </div>
                   <div>
-                    <h5 className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Escritório & Pátio</h5>
+                    <h5 className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Pátio</h5>
                     <p className="text-sm font-semibold text-white">
                       {company.address} - {company.cityState}
                     </p>
@@ -154,7 +154,7 @@ export default function Contato({ siteData }: ContatoProps) {
                     <Clock size={18} />
                   </div>
                   <div>
-                    <h5 className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Atendimento Operacional</h5>
+                    <h5 className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Horario de atendimento</h5>
                     <p className="text-sm font-semibold text-white">{company.workingHours}</p>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function Contato({ siteData }: ContatoProps) {
             {/* Note alert */}
             <div className="border-t border-brand-blue-800/60 pt-6">
               <div className="text-xs text-gray-400 leading-relaxed bg-brand-blue-950/30 p-4 rounded-xl border border-dashed border-brand-blue-800">
-                📍 <strong>Localização Estratégica:</strong> Baseados em Sorocaba-SP, atendemos com rapidez e agilidade logística toda a região metropolitana, interior de São Paulo e estados vizinhos.
+                📍 <strong>Localização Estratégica:</strong> Baseados em Minas Gerais, atendemos com rapidez e agilidade logística todo país.
               </div>
             </div>
           </div>
