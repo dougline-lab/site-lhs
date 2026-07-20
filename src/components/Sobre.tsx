@@ -110,26 +110,6 @@ export default function Sobre({ siteData }: SobreProps) {
             <p className="text-gray-600 leading-relaxed text-base">
               {about.text2}
             </p>
-
-            {/* Crucial Disclaimer Alert Banner */}
-            <div className="bg-brand-blue-900 text-white rounded-xl p-6 shadow-md border-l-4 border-brand-accent-500 relative overflow-hidden">
-              <div className="absolute right-0 top-0 translate-x-6 -translate-y-6 opacity-5">
-                <FileText size={180} />
-              </div>
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="bg-brand-accent-500 text-brand-blue-950 p-2.5 rounded-lg shrink-0 mt-1">
-                  <AlertTriangle size={20} className="stroke-[2.5]" />
-                </div>
-                <div>
-                  <h4 className="font-display font-bold text-brand-accent-500 text-lg mb-2">
-                    {about.licenseTitle}
-                  </h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {about.licenseText}
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Graphic Banner (Right) */}
