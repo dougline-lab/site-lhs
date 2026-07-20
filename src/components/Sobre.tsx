@@ -14,7 +14,7 @@ export default function Sobre({ siteData }: SobreProps) {
   const [isPlaying, setIsPlaying] = useState(true);
 
   // Lista de fontes de vídeo ordenada por prioridade (compatível com GitHub Pages e caminhos locais)
-  const base = (import.meta as any).env?.BASE_URL || "/";
+  const base = import.meta.env.BASE_URL;
   const videoSources = [
     `${base}triturador-trabalhand.mp4`,
     `${base}src/assets/images/triturador-trabalhand.mp4`,

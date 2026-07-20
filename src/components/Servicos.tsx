@@ -146,11 +146,9 @@ export default function Servicos({ siteData }: ServicosProps) {
                       src={
                         machine.imageUrl.startsWith("http://") ||
                         machine.imageUrl.startsWith("https://") ||
-                        machine.imageUrl.startsWith("data:") ||
-                        machine.imageUrl.startsWith("/") ||
-                        machine.imageUrl.includes("/assets/")
+                        machine.imageUrl.startsWith("data:")
                           ? machine.imageUrl
-                          : `${(import.meta as any).env?.BASE_URL || "/"}${machine.imageUrl}`
+                          : `${import.meta.env.BASE_URL}${machine.imageUrl.startsWith("/") ? machine.imageUrl.slice(1) : machine.imageUrl}`
                       }
                       alt={machine.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

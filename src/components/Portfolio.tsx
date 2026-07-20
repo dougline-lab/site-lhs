@@ -72,11 +72,9 @@ export default function Portfolio({ siteData }: PortfolioProps) {
                   src={
                     item.imageUrl.startsWith("http://") ||
                     item.imageUrl.startsWith("https://") ||
-                    item.imageUrl.startsWith("data:") ||
-                    item.imageUrl.startsWith("/") ||
-                    item.imageUrl.includes("/assets/")
+                    item.imageUrl.startsWith("data:")
                       ? item.imageUrl
-                      : `${(import.meta as any).env?.BASE_URL || "/"}${item.imageUrl}`
+                      : `${import.meta.env.BASE_URL}${item.imageUrl.startsWith("/") ? item.imageUrl.slice(1) : item.imageUrl}`
                   }
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -111,19 +109,6 @@ export default function Portfolio({ siteData }: PortfolioProps) {
                   <p className="text-gray-500 text-xs leading-relaxed mb-4">
                     {item.description}
                   </p>
-                </div>
-
-                {/* Local Folder Sync Guide Badge - EXTREMELY USEFUL */}
-                <div className="mt-4 pt-4 border-t border-slate-100">
-                  <div className="bg-slate-50 border border-slate-200/60 rounded-lg p-3 flex flex-col gap-1.5">
-                    <div className="flex items-center gap-1.5 text-[10px] text-slate-500 font-bold uppercase tracking-wider">
-                      <Folder size={12} className="text-brand-accent-600 shrink-0" />
-                      <span>Arquivo físico local correspondente:</span>
-                    </div>
-                    <div className="font-mono text-[10px] text-brand-blue-900 font-semibold truncate bg-white border border-slate-200/50 p-1.5 rounded">
-                      ./{item.localPath}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

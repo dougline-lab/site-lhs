@@ -36,6 +36,9 @@ export default function App() {
                 !item.imageUrl ||
                 item.imageUrl.includes("unsplash.com") ||
                 item.imageUrl.includes("imagens/") ||
+                item.imageUrl.includes("images/") ||
+                item.imageUrl.includes("/assets/") ||
+                item.imageUrl.includes("/src/") ||
                 item.imageUrl.includes("portfolio_") ||
                 item.imageUrl === "tritImg" ||
                 item.imageUrl === "limpImg" ||
@@ -56,6 +59,9 @@ export default function App() {
                 !item.imageUrl ||
                 item.imageUrl.includes("unsplash.com") ||
                 item.imageUrl.includes("imagens/") ||
+                item.imageUrl.includes("images/") ||
+                item.imageUrl.includes("/assets/") ||
+                item.imageUrl.includes("/src/") ||
                 item.imageUrl.includes("portfolio_");
               if (isStale) {
                 wasHealed = true;
