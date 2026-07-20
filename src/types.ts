@@ -62,6 +62,7 @@ export interface PortfolioItem {
   category: "supressao" | "locacao" | "limpeza";
   description: string;
   imageUrl: string;
+  videoUrl?: string;
   localPath: string; // To help them document where their local file goes
 }
 

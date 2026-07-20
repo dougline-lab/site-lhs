@@ -67,28 +67,53 @@ export default function Portfolio({ siteData }: PortfolioProps) {
               key={item.id}
               className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col group h-full"
             >
-              {/* Photo cover with Zoom effect */}
+              {/* Photo or Video cover */}
               <div className="relative aspect-4/3 overflow-hidden bg-brand-blue-950 group/img">
-                <img
-                  src={resolveImagePath(item.imageUrl)}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-950/90 via-brand-blue-950/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <button 
-                    onClick={() => handleConsultProject(item.title)}
-                    className="bg-brand-accent-500 hover:bg-brand-accent-600 text-brand-blue-950 px-4 py-2 rounded-lg text-xs font-extrabold flex items-center gap-1.5 shadow-md shadow-brand-accent-500/20 cursor-pointer transform translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300"
+                {item.videoUrl ? (
+                  <video
+                    src={resolveImagePath(item.videoUrl)}
+                    poster={resolveImagePath(item.imageUrl)}
+                    className="w-full h-full object-cover"
+                    controls
+                    muted
+                    loop
+                    playsInline
                   >
-                    <span>Orçar Semelhante</span>
-                    <ChevronRight size={14} />
-                  </button>
-                </div>
+                    Seu navegador não suporta a exibição de vídeos.
+                  </video>
+                ) : (
+                  <>
+                    <img
+                      src={resolveImagePath(item.imageUrl)}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-blue-950/90 via-brand-blue-950/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <button 
+                        onClick={() => handleConsultProject(item.title)}
+                        className="bg-brand-accent-500 hover:bg-brand-accent-600 text-brand-blue-950 px-4 py-2 rounded-lg text-xs font-extrabold flex items-center gap-1.5 shadow-md shadow-brand-accent-500/20 cursor-pointer transform translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300"
+                      >
+                        <span>Orçar Semelhante</span>
+                        <ChevronRight size={14} />
+                      </button>
+                    </div>
+                  </>
+                )}
 
                 {/* Media Type indicator banner */}
-                <div className="absolute top-4 right-4 bg-brand-blue-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-brand-blue-800/40 flex items-center gap-1 text-[10px] text-white font-semibold">
-                  <ImageIcon size={12} className="text-brand-accent-500" />
-                  <span className="uppercase tracking-wider">Imagem</span>
+                <div className="absolute top-4 right-4 bg-brand-blue-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-brand-blue-800/40 flex items-center gap-1 text-[10px] text-white font-semibold z-10">
+                  {item.videoUrl ? (
+                    <>
+                      <VideoIcon size={12} className="text-brand-accent-500" />
+                      <span className="uppercase tracking-wider">Vídeo</span>
+                    </>
+                  ) : (
+                    <>
+                      <ImageIcon size={12} className="text-brand-accent-500" />
+                      <span className="uppercase tracking-wider">Imagem</span>
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -105,6 +130,17 @@ export default function Portfolio({ siteData }: PortfolioProps) {
                     {item.description}
                   </p>
                 </div>
+                {item.videoUrl && (
+                  <div className="mt-2">
+                    <button 
+                      onClick={() => handleConsultProject(item.title)}
+                      className="w-full justify-center bg-brand-blue-900 hover:bg-brand-blue-950 text-white hover:text-brand-accent-500 px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all duration-200 cursor-pointer"
+                    >
+                      <span>Orçar Este Serviço</span>
+                      <ChevronRight size={14} />
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           ))}

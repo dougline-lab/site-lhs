@@ -139,7 +139,8 @@ export const defaultSiteData: SiteData = {
       category: "supressao",
       description: "Limpeza completa de 15 hectares para futura instalação de complexo logístico.",
       imageUrl: "trit.jpeg",
-      localPath: "trit.jpeg"
+      videoUrl: "komatsu-area-urbana.mp4",
+      localPath: "komatsu-area-urbana.mp4"
     },
     {
       id: "p2",

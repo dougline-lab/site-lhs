@@ -78,7 +78,11 @@ export default function App() {
                 item.imageUrl === "caminhoesImg";
               if (isStale) {
                 wasHealed = true;
-                return { ...item, imageUrl: defaultItem.imageUrl };
+                return { ...item, imageUrl: defaultItem.imageUrl, videoUrl: defaultItem.videoUrl };
+              }
+              if (defaultItem.videoUrl && item.videoUrl !== defaultItem.videoUrl) {
+                item.videoUrl = defaultItem.videoUrl;
+                wasHealed = true;
               }
             }
             return item;
