@@ -1,0 +1,6 @@
+{
+  "name": "LH Silva",
+  "description": "Website institucional para a empresa LH Silva - Locação de Máquinas e Supressão Vegetal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
