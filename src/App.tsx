@@ -75,14 +75,27 @@ export default function App() {
                 item.imageUrl.includes("portfolio_") ||
                 item.imageUrl === "tritImg" ||
                 item.imageUrl === "limpImg" ||
-                item.imageUrl === "caminhoesImg";
+                item.imageUrl === "caminhoesImg" ||
+                item.imageUrl === "caminhoes.jpeg" ||
+                item.imageUrl === "limpeza.jpeg" ||
+                item.imageUrl === "trit.jpeg" ||
+                (item.id === "p1" && item.imageUrl !== "trit.jpeg") ||
+                (item.id === "p2" && item.imageUrl !== "caminhoes1.jpeg") ||
+                (item.id === "p3" && item.imageUrl !== "limp.jpeg");
               if (isStale) {
                 wasHealed = true;
                 return { ...item, imageUrl: defaultItem.imageUrl, videoUrl: defaultItem.videoUrl };
               }
-              if (defaultItem.videoUrl && item.videoUrl !== defaultItem.videoUrl) {
-                item.videoUrl = defaultItem.videoUrl;
-                wasHealed = true;
+              if (defaultItem.videoUrl) {
+                if (item.videoUrl !== defaultItem.videoUrl) {
+                  item.videoUrl = defaultItem.videoUrl;
+                  wasHealed = true;
+                }
+              } else {
+                if (item.videoUrl) {
+                  delete item.videoUrl;
+                  wasHealed = true;
+                }
               }
             }
             return item;
