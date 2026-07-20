@@ -71,14 +71,16 @@ export default function Portfolio({ siteData }: PortfolioProps) {
               <div className="relative aspect-4/3 overflow-hidden bg-brand-blue-950 group/img">
                 {item.videoUrl ? (
                   <video
-                    src={resolveImagePath(item.videoUrl)}
                     poster={resolveImagePath(item.imageUrl)}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover animate-fade-in"
                     controls
+                    autoPlay
                     muted
                     loop
                     playsInline
+                    preload="auto"
                   >
+                    <source src={resolveImagePath(item.videoUrl)} type="video/mp4" />
                     Seu navegador não suporta a exibição de vídeos.
                   </video>
                 ) : (
@@ -130,17 +132,6 @@ export default function Portfolio({ siteData }: PortfolioProps) {
                     {item.description}
                   </p>
                 </div>
-                {item.videoUrl && (
-                  <div className="mt-2">
-                    <button 
-                      onClick={() => handleConsultProject(item.title)}
-                      className="w-full justify-center bg-brand-blue-900 hover:bg-brand-blue-950 text-white hover:text-brand-accent-500 px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all duration-200 cursor-pointer"
-                    >
-                      <span>Orçar Este Serviço</span>
-                      <ChevronRight size={14} />
-                    </button>
-                  </div>
-                )}
               </div>
             </div>
           ))}
