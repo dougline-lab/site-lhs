@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Shield, Clock, Leaf, AlertTriangle, FileText, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { SiteData } from "../types";
@@ -12,6 +12,36 @@ export default function Sobre({ siteData }: SobreProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  // Lista de fontes de vídeo ordenada por prioridade (compatível com GitHub Pages e caminhos locais)
+  const videoSources = [
+    "./src/assets/images/triturador-trabalhand.mp4",
+    "src/assets/images/triturador-trabalhand.mp4",
+    "./triturador-trabalhand.mp4",
+    "triturador-trabalhand.mp4",
+    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
+  ];
+  const [currentSourceIndex, setCurrentSourceIndex] = useState(0);
+
+  const handleVideoError = () => {
+    if (currentSourceIndex < videoSources.length - 1) {
+      console.warn(`Erro ao carregar o vídeo de: ${videoSources[currentSourceIndex]}. Tentando alternativa...`);
+      setCurrentSourceIndex(prev => prev + 1);
+    } else {
+      console.error("Todas as fontes de vídeo falharam ao carregar.");
+    }
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      if (isPlaying) {
+        videoRef.current.play().catch(() => {
+          // Autoplay pode ser bloqueado pelo navegador se houver som, mas como padrão está mutado
+        });
+      }
+    }
+  }, [currentSourceIndex]);
 
   // Helper to render icon by name
   const renderIcon = (name: string, size = 28) => {
@@ -105,7 +135,8 @@ export default function Sobre({ siteData }: SobreProps) {
             >
               <video
                 ref={videoRef}
-                src="/src/assets/images/triturador-trabalhand.mp4"
+                src={videoSources[currentSourceIndex]}
+                onError={handleVideoError}
                 poster="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?auto=format&fit=crop&q=80&w=800"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
                 autoPlay
